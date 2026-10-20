@@ -1,4 +1,4 @@
-const { buscarProducto } = require("./productos");
+const { buscarProducto } = require("./producto");
 const { calcularTotalConIGV } = require("./igv");
 
 const ventas = [];
