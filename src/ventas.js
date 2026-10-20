@@ -11,6 +11,9 @@ function registrarVenta(cliente, items) {
     if (!producto) {
       throw new Error("Producto no existe");
     }
+    if (item.cantidad > producto.stock) {
+        throw new Error("Stock insuficiente");
+        }
     producto.stock -= item.cantidad;
     subtotal += producto.precio;
   }
