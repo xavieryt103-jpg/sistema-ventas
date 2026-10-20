@@ -1,0 +1,17 @@
+const assert = require("assert");
+const { calcularTotalConIGV } = require("../src/igv");
+const { registrarCliente } = require("../src/clientes");
+const { registrarProducto } = require("../src/producto");
+const { registrarVenta } = require("../src/ventas");
+
+// Prueba 1: IGV
+assert.strictEqual(calcularTotalConIGV(100), 118);
+
+// Prueba 2: venta de 1 unidad
+const cliente = registrarCliente("Ana", "12345678");
+const producto = registrarProducto("Hamburguesa", 10, 5);
+const venta = registrarVenta(cliente, [{ productoId: producto.id, cantidad: 1 }]);
+assert.strictEqual(venta.total, 11.8);
+assert.strictEqual(producto.stock, 4);
+
+console.log("Todas las pruebas pasaron");
