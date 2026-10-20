@@ -15,7 +15,7 @@ function registrarVenta(cliente, items) {
         throw new Error("Stock insuficiente");
         }
     producto.stock -= item.cantidad;
-    subtotal += producto.precio;
+    subtotal += producto.precio * item.cantidad;
   }
   const venta = {
     id: ventas.length + 1,
